@@ -1,0 +1,93 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="PELefsPjMGROvh_PHjfc">
+    <mxGraphModel dx="1221" dy="823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-2" value="&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Begin&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp; Input: a, b, c (ba&lt;br&gt;số nguyên)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If (a &amp;gt;= b) and (a &amp;gt;= c) then&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; max = a&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp; Else If (b &amp;gt;= a)&lt;br&gt;and (b &amp;gt;= c) then&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; max = b&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; Else&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; max = c&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; End If&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;Output: max (giá trị lớn nhất trong 3 số)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;font-size: 14px;&quot; class=&quot;MsoNormal&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;End&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="280" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-3" target="_TOXnMVnL2TX_COM-W-y-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-3" value="Begin" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="26" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-4" target="_TOXnMVnL2TX_COM-W-y-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-4" value="Input a,b,c" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="146" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-5" target="_TOXnMVnL2TX_COM-W-y-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-5" value="max=a" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="256" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-6" target="_TOXnMVnL2TX_COM-W-y-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-6" target="_TOXnMVnL2TX_COM-W-y-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-6" value="if max &amp;lt; b" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="376" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-7" target="_TOXnMVnL2TX_COM-W-y-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-7" value="max=b" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="386" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-8" target="_TOXnMVnL2TX_COM-W-y-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-8" target="_TOXnMVnL2TX_COM-W-y-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="556" />
+              <mxPoint x="370" y="706" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-8" value="if max &amp;lt; c" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="516" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-9" target="_TOXnMVnL2TX_COM-W-y-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="706" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-9" value="max=c" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="616" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-17" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="520" y="394" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-18" value="TRUE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="500" y="616" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-19" value="FALSE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=270;" vertex="1" parent="1">
+          <mxGeometry x="440" y="466" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_TOXnMVnL2TX_COM-W-y-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="766" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-21" value="Output max" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="676" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-24" value="FALSE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=270;" vertex="1" parent="1">
+          <mxGeometry x="320" y="636" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_TOXnMVnL2TX_COM-W-y-25" value="End" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="767" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
