@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style> .p {
+    font-family: "Lucida Grande","Lucida Sans Unicode",Tahoma, serif;
+    } </style>
+</head>
+<body>
+
+<form method="get" action="Simple_form.html">
+    <h1 class="p">Order Form</h1>
+
+
+    <b><p class="p">What would you like to buy?</p>
+    </b>
+
+    <select>
+        <option value = "  ">A</option>
+        <option>B (+  0.5$)</option>
+        <option>C (+  0.5$)</option>
+
+
+    </select>
+
+    <b><p class="p">How many would you like to order?</p></b>
+
+
+    <input type="radio"/> 1- $10 <br/>
+    <input type="radio"/> 2- $20 <br/>
+    <input type="radio"/> 3- $30 <br/>
+
+    <b><p class="p">Name <span style="color: red">*</span></p></b>
+
+
+    <input type="text" name="firstname" placeholder="firstname" size="15" />
+    <input type="text" name="lastname" placeholder="lastname" size="15" />
+
+    <b><p class="p">Email</p></b>
+
+
+    <input type="email" name="email" placeholder="example@gmail.com" size="30"/>
+
+    <b><p class="p">Phone Number</p></b>
+
+
+    <input type="tel" name="phone1" size="5"/> -
+    <input type="tel" name="phone2" size="5"/> -
+    <input type="tel" name="phone3" size="5"/>
+
+    <p><input class="p" style="font: bold" type="button" name="btSubmit" value="Submit"/> </p>
+
+</form>
+</body>
+</html>
