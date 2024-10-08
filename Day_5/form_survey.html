@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form id="form" name="form" method="post">
+  <header id="header" class="info">
+    <h2>Market Research Survey</h2>
+    <div>Please take a few moments to complete this satisfaction survey. </div>
+  </header>
+  <ul>
+    <li>
+      <label>What is your age range?</label>
+      <div>
+        <select name="age" >
+          <option value="18-24">18-24</option>
+          <option value="25-34">25-34</option>
+          <option value="35-50">35-50</option>
+          <option value="50+">50+</option>
+        </select> <br>
+      </div>
+    </li>
+    <br>
+    <li>
+      <label>What is your yearly income range?</label>
+      <div>
+        <select name="income" >
+          <option value="$0-$25,000">$0-$25,000</option>
+          <option value="$25,001-50,000">$25,001-50,000</option>
+          <option value=""50,001-100,000>50,001-100,000</option>
+          <option value="100,001+">100,001+</option>
+        </select> <br>
+      </div>
+    </li>
+    <br>
+    <li>
+      <label>Gender Identity</label> <br>
+      <input type="radio">Male</input> <br>
+      <input type="radio">Female</input> <br>
+      <input type="radio">Nonbinary</input> <br>
+      <input type="radio">Other</input> <br>
+      <input type="text" aria-valuemax="250" >
+    </li>
+    <br>
+    <li>
+      <label>Which of the following products have your purchased in the last 2 months. Please check all that apply.</label>
+      <div>
+        <input type="checkbox">Product 1</input> <br>
+        <input type="checkbox">Product 2</input> <br>
+        <input type="checkbox">Product 3</input> <br>
+      </div>
+    </li>
+    <br>
+    <li>
+      <label>How often would you use our new product?</label> <br>
+      <input type="radio">Daily</input> <br>
+      <input type="radio">Weekly</input> <br>
+      <input type="radio">Monthly</input>
+    </li>
+    <br>
+    <li>
+      <label>What would you pay for the new product?</label> <br>
+      <span datatype="symbol">$</span>
+      <span>
+        <input type="text" size="5" >
+        .
+        <input type="text" size="1" > <br>
+      </span>
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Dollars</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Cents</td>
+        </tr>
+      </table>
+    </li>
+    <li>
+      <label>What features would you like to see in the new product.</label> <br>
+      <textarea rows="10" cols="90" > </textarea>
+    </li>
+    <li>
+      <label>Please rate your level of agreement with the following statements.</label>
+      <table>
+        <th >
+          <tr >
+            <td></td>
+            <td>Strongly Disagree</td>
+            <td>Disagree</td>
+            <td>Agree</td>
+            <td>Strongly Agree</td>
+          </tr> <br>
+          <tr>
+            <td>Our products are priced fairly</td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio" ></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align: center">1</td> <td style="text-align: center">2</td> <td style="text-align: center">3</td> <td style="text-align: center">4</td>
+          </tr>
+          <tr>
+            <td>Our products are high quality.</td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio"></td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio" ></td>
+          </tr>
+        <tr>
+          <td></td>
+          <td style="text-align: center">1</td> <td style="text-align: center">2</td> <td style="text-align: center">3</td> <td style="text-align: center">4</td>
+        </tr>
+          <tr>
+            <td>You would recommend our product with the following statements.</td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio" ></td>
+            <td style="text-align: center"><input type="radio" ></td>
+          </tr>
+        <tr>
+          <td></td>
+          <td style="text-align: center">1</td> <td style="text-align: center">2</td> <td style="text-align: center">3</td> <td style="text-align: center">4</td>
+        </tr>
+        </th>
+      </table> <br>
+    </li>
+    <label>
+      <input type="submit" value="Submit">
+    </label>
+
+  </ul>
+
+</form>
+</body>
+</html>
