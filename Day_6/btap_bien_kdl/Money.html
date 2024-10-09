@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+  <table style="width: 100%">
+    <tr>
+      <th style="text-align: center"><label>Amount</label></th> <th style="text-align: center"><label>From Currency</label></th> <th style="text-align: center"><label>To Curruncy</label></th> <th></th>
+    </tr>
+    <tr>
+      <td style="text-align: center">
+        <input aria-valuetext="100px" id="amount">
+      </td>
+      <td style="text-align: center">
+        <select id="from">
+          <option value="VND">VND</option>
+          <option value="USD">USD</option>
+        </select>
+      </td>
+      <td style="text-align: center">
+        <select id="to">
+          <option value="VND">VND</option>
+          <option value="USD">USD</option>
+        </select>
+      </td>
+      <td>
+        <button onclick="changemoney()">convert</button>
+      </td>
+    </tr>
+  </table> <br>
+  <p id="result"></p>
+  <script src="money.js"></script>
+
+</body>
+</html>
