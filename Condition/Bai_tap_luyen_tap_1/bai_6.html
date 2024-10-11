@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Kiểm tra số lớn nhất</h1>
+<label>Nhập doanh số:</label> <input id="a" type="number" aria-valuetext="50"> VNĐ <br> <br>
+<button id="checkcommission" onclick="checkcommission()">Check Commission</button>
+<script>
+  document.getElementById("checkcommission").onclick = function checkcommission() {
+    let a = +document.getElementById("a").value;
+    let commission = a * 10 / 100;
+    if (isNaN(a) || a < 0) document.getElementById("commission").innerHTML = 'Wrong data'
+    else {
+      document.getElementById("commission").innerHTML = `${commission} là hoa hồng được nhận`
+    }
+  }
+</script>
+<p id="commission"></p>
+</body>
+</html>

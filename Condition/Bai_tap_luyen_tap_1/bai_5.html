@@ -5,20 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Kiểm tra số lớn nhất</h1>
-<label>Nhập điểm kiểm tra:</label> <input id="a" type="number" aria-valuetext="50"> <br> <br>
-<label>Nhập điểm giữa kì:</label> <input id="b" type="number" aria-valuetext="50"> <br> <br>
-<label>Nhập điểm cuối kì:</label> <input id="c" type="number" aria-valuetext="50">
+<h1>Kiểm tra danh hiệu học sinh</h1>
+<label>Nhập điểm kiểm tra:</label> <input id="ktra" type="number" aria-valuetext="50"> <br> <br>
+<label>Nhập điểm giữa kì:</label> <input id="giuaki" type="number" aria-valuetext="50"> <br> <br>
+<label>Nhập điểm cuối kì:</label> <input id="cuoiki" type="number" aria-valuetext="50">
 <button id="check" onclick="check()">Check</button>
 <script>
     document.getElementById("check").onclick = function check() {
-        let a = +document.getElementById("a").value;
-        let b = +document.getElementById("b").value;
-        let c = +document.getElementById("c").value;
-        let dtb = (a + b + c)/3;
-        if (isNaN(a) || isNaN(b) || isNaN(c)) document.getElementById("result").innerHTML = 'Wrong data'
+        let ktra = +document.getElementById("ktra").value;
+        let giuaki = +document.getElementById("giuaki").value;
+        let cuoiki = +document.getElementById("cuoiki").value;
+        let dtb = (ktra + giuaki + cuoiki)/3;
+        if (isNaN(ktra) || isNaN(giuaki) || isNaN(cuoiki) || ktra > 10 || ktra < 0 || giuaki > 10 || giuaki < 0 || cuoiki > 10 || cuoiki < 0) document.getElementById("result").innerHTML = 'Wrong data'
         else {
-            if ()
+            if (dtb >= 8) {
+                document.getElementById("result").innerHTML = 'Học sinh giỏi'
+            }
+            else if (dtb >= 6.5 ) {
+                document.getElementById("result").innerHTML = 'Học sinh khá'
+            }
+            else if (dtb >= 5.0) {
+                document.getElementById("result").innerHTML = 'Học sinh trung bình'
+            }
+            else if (dtb >= 3.5) {
+                document.getElementById("result").innerHTML = 'Học sinh yếu'
+            }
+            else document.getElementById("result").innerHTML = 'Học sinh kém'
         }
     }
 </script>

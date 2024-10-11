@@ -6,11 +6,11 @@
 </head>
 <body>
 <h1>Kiểm tra tuổi có đủ điều kiện học lớp 10?</h1>
-<label>Nhập tuổi:</label> <input id="a" type="number" aria-valuetext="50">
+<label>Nhập tuổi:</label> <input id="age" type="number" aria-valuetext="50">
 <button id="check" onclick="check()">Check</button>
 <script>
   document.getElementById("check").onclick = function check() {
-    let a = +document.getElementById("a").value;
+    let a = +document.getElementById("age").value;
     if (a >= 0) {
       if (a >= 15) document.getElementById("result").innerHTML = `Đủ điều kiện học lớp 10`
       else document.getElementById("result").innerHTML = `Không đủ điều kiện học lớp 10`
