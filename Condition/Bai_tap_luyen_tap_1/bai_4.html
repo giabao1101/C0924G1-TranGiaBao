@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Kiểm tra số lớn nhất</h1>
+<label>Nhập a:</label> <input id="a" type="number" aria-valuetext="50"> <br> <br>
+<label>Nhập b:</label> <input id="b" type="number" aria-valuetext="50"> <br> <br>
+<label>Nhập c:</label> <input id="c" type="number" aria-valuetext="50">
+<button id="check" onclick="check()">Check</button>
+<script>
+  document.getElementById("check").onclick = function check() {
+    let a = +document.getElementById("a").value;
+    let b = +document.getElementById("b").value;
+    let c = +document.getElementById("c").value;
+    let result = a;
+    if (isNaN(a) || isNaN(b) || isNaN(c)) document.getElementById("result").innerHTML = 'Wrong data'
+    else {
+      if (result < b) result = b;
+      if (result < c) result = c;
+    }
+    document.getElementById("result").innerHTML = `${result} là số lớn nhất trong 3 số`
+  }
+</script>
+<p id="result"></p>
+</body>
+</html>

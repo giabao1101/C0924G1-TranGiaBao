@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Kiểm tra số âm dương</h1>
+<label>Nhập a:</label> <input id="a" type="number" aria-valuetext="50">
+<button id="check" onclick="check()">Check</button>
+<script>
+  document.getElementById("check").onclick = function check() {
+    let a = +document.getElementById("a").value;
+    if (a > 0) document.getElementById("result").innerHTML = `${a} là số dương`
+    else if (a === 0) document.getElementById("result").innerHTML = `${a} không là số dương cũng không là số âm`
+    else if (a < 0) document.getElementById("result").innerHTML = `${a} là số âm`
+    else document.getElementById("result").innerHTML = 'Wrong data'
+  }
+</script>
+<p id="result"></p>
+</body>
+</html>
