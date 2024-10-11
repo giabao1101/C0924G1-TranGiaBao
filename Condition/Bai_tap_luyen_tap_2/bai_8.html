@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra tuổi</title>
+</head>
+<body>
+<h1>Kiểm tra tuổi</h1>
+<label>Nhập tuổi: </label> <input id="age" type="number">
+<button id="check" onclick="check()">Check</button>
+<script>
+    document.getElementById("check").onclick = function check() {
+        let age = +document.getElementById("age").value;
+        if (Number.isInteger(age) && age > 0 && age < 120) {
+            document.getElementById("result").innerHTML = "Yes"
+        } else {
+            document.getElementById("result").innerHTML = "No"
+        }
+    }
+</script>
+<p id="result"></p>
+</body>
+</html>

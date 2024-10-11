@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra tam giác</title>
+</head>
+<body>
+<h1>Kiểm tra tam giác</h1>
+<label>Nhập cạnh a: </label> <input id="a" type="number"> <br> <br>
+<label>Nhập cạnh b: </label> <input id="b" type="number"> <br> <br>
+<label>Nhập cạnh c: </label> <input id="c" type="number"> <br> <br>
+<button id="check" onclick="check()">Check</button>
+<script>
+  document.getElementById("check").onclick = function check() {
+    let a = +document.getElementById("a").value;
+    let b = +document.getElementById("b").value;
+    let c = +document.getElementById("c").value;
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+          document.getElementById("result").innerHTML = 'Wrong data'
+        }
+        else {
+          if (a > 0 && b > 0 && c > 0) {
+            if (a + b > c || a + c > b || b + c > a)
+              document.getElementById("result").innerHTML = 'Là tam giác'
+            else document.getElementById("result").innerHTML = 'Không phải tam giác'
+          }
+          else document.getElementById("result").innerHTML = 'Wrong data'
+        }
+  }
+</script>
+<p id="result"></p>
+</body>
+</html>

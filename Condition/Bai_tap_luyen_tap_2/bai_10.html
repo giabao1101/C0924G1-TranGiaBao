@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra tiền điện</title>
+</head>
+<body>
+<h1>Kiểm tra tiền điện</h1>
+<label>Nhập số chữ sử dụng điện: </label> <input id="dien" type="number">
+<button id="check" onclick="check()">Check</button>
+<script>
+  document.getElementById("check").onclick = function check() {
+    let dien = +document.getElementById("dien").value;
+    let bac1 = 1678;
+    let bac2 = 1734;
+    let bac3 = 2014;
+    let bac4 = 2536;
+    let bac5 = 2834;
+    let bac6 = 2927;
+    if (dien >=0 && dien <= 50) {
+      let total = dien * bac1;
+      document.getElementById("result").innerHTML = `Số tiền điện phải trả là ${total} VNĐ`
+    }
+    else if (dien <= 100) {
+      let total = 50 * bac1 + (dien - 50) * bac2;
+      document.getElementById("result").innerHTML = `Số tiền điện phải trả là ${total} VNĐ`
+    }
+    else if (dien <= 200) {
+      let total = 50 * bac1 + 50 * bac2 + (dien - 100) *bac3;
+      document.getElementById("result").innerHTML = `Số tiền điện phải trả là ${total} VNĐ`
+    }
+    else if (dien <= 300) {
+      let total = 50 * bac1 + 50 * bac2 + 100 * bac3 + (dien - 200) *bac4;
+      document.getElementById("result").innerHTML = `Số tiền điện phải trả là ${total} VNĐ`
+    }
+    else if (dien <= 400) {
+      let total = 50 * bac1 + 50 * bac2 + 100 * bac3 + 100 * bac4 + (dien - 300) * bac5;
+      document.getElementById("result").innerHTML = `Số tiền điện phải trả là ${total} VNĐ`
+    }
+    else if (dien > 400) {
+      let total = 50 * bac1 + 50 * bac2 + 100 * bac3 + 100 *bac4 + 100 * bac5 + (dien -400) * bac6;
+      document.getElementById("result").innerHTML = `Số tiền điện phải trả là ${total} VNĐ`
+    }
+    else document.getElementById("result").innerHTML = 'Wrong data'
+  }
+</script>
+<p id="result"></p>
+</body>
+</html>
