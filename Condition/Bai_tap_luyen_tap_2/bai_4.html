@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Tính diện tích hình chữ nhật</h1>
+<label>Nhập chiều dài:</label> <input id="a" type="number" aria-valuetext="50"> m <br> <br>
+<label>Nhập chiều rộng:</label> <input id="b" type="number" aria-valuetext="50"> m <br> <br>
+
+<button id="area" onclick="area()">Tính</button>
+<script>
+  document.getElementById("area").onclick = function area() {
+    let a = +document.getElementById("a").value;
+    let b = +document.getElementById("b").value;
+    let area = a * b;
+    if (isNaN(a) || isNaN(b) || b < 0 || a < 0) document.getElementById("result").innerHTML = 'Wrong data'
+    else {
+      document.getElementById("result").innerHTML = `Diện tích hình chữ nhật là ${area} mét vuông`
+    }
+  }
+</script>
+<p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Giải phương trình bậc 2</h1>
+<label>Nhập phương trình bậc 2:</label> <br> <br>
+<span>
+  <input id="a" type="number" style="text-align: center" placeholder="a">X^2 +
+  <input id="b" type="number" style="text-align: center" placeholder="b">X +
+  <input id="c" type="number" style="text-align: center" placeholder="c"> =
+  <input id="d" type="number" style="text-align: center" placeholder="d"> <br> <br>
+  <button id="find" onclick="find()">Tìm X</button>
+</span>
+<script>
+  document.getElementById("find").onclick = function find() {
+    let a = +document.getElementById("a").value;
+    let b = +document.getElementById("b").value;
+    let c = +document.getElementById("c").value;
+    let d = +document.getElementById("d").value;
+    let delta = b * b - 4 * a * (c - d);
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+      document.getElementById("result").innerHTML = 'Data not valid'
+    }
+    if (a === 0) {
+      let x = (d - c ) / b;
+      document.getElementById("result").innerHTML = `Nghiệm của phương trình là X= ${x}`
+    }
+    else {
+      if (delta < 0) {
+        document.getElementById("result").innerHTML = 'Phương trình vô nghiệm'
+      }
+      else if (delta === 0) {
+        let x = -b/(2*a);
+        document.getElementById("result").innerHTML = `Phương trình có nghiệm kép X=${x}`
+      }
+      else {
+        let x1 = (-b + math.sqrt(delta))/(2*a);
+        let x2 = (-b - math.sqrt(delta))/(2*a);
+        document.getElementById("result").innerHTML = `Phương trình có 2 nghiệm X1=${x1} và X2=${x2}`
+      }
+    }
+  }
+</script>
+<p id="result"></p>
+</body>
+</html>

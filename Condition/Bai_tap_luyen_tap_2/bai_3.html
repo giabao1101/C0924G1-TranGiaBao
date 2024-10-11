@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính diện tích hình vuông</h1>
+<label>Nhập cạnh hình vuông:</label> <input id="a" type="number" aria-valuetext="50"> m <br> <br>
+
+<button id="area" onclick="area()">Tính</button>
+<script>
+    document.getElementById("area").onclick = function area() {
+        let a = +document.getElementById("a").value;
+        let area = a * a;
+        if (isNaN(a) || a < 0) document.getElementById("result").innerHTML = 'Wrong data'
+        else {
+            document.getElementById("result").innerHTML = `Diện tích hình vuông là ${area} mét vuông`
+        }
+    }
+</script>
+<p id="result"></p>
+</body>
+</html>
