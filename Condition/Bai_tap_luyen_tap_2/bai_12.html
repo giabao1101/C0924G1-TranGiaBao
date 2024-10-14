@@ -11,18 +11,18 @@
 <label>Nhập lãi suất hàng tháng: </label> <input id="r" type="number">% <br> <br>
 <button id="check" onclick="check()">Check</button>
 <script>
-  document.getElementById("check").onclick = function check() {
-    let p = +document.getElementById("p").value;
-    let n = +document.getElementById("n").value;
-    let r = +document.getElementById("r").value;
-    let total = p * Math.pow(1 + r/100,n);
-    if (isNaN(p) || isNaN(n) || isNaN(r) || p < 0 || n < 0 || r < 0 || !Number.isInteger(n)) {
-      document.getElementById("result").innerHTML = 'Wrong Data'
+    document.getElementById("check").onclick = function check() {
+        let p = +document.getElementById("p").value;
+        let n = +document.getElementById("n").value;
+        let r = +document.getElementById("r").value;
+
+        if (isNaN(p) || isNaN(n) || isNaN(r) || p < 0 || n < 0 || r < 0 || !Number.isInteger(n)) {
+            document.getElementById("result").innerHTML = 'Wrong Data'
+        } else {
+            let total = p * Math.pow(1 + r / 100, n);
+            document.getElementById("result").innerHTML = `Tổng số tiền được nhận sau ${n} tháng là ${total} VNĐ`
+        }
     }
-    else {
-      document.getElementById("result").innerHTML = `Tổng số tiền được nhận sau ${n} tháng là ${total} VNĐ`
-    }
-  }
 </script>
 <p id="result"></p>
 </body>

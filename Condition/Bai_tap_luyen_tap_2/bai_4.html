@@ -14,9 +14,9 @@
   document.getElementById("area").onclick = function area() {
     let a = +document.getElementById("a").value;
     let b = +document.getElementById("b").value;
-    let area = a * b;
     if (isNaN(a) || isNaN(b) || b < 0 || a < 0) document.getElementById("result").innerHTML = 'Wrong data'
     else {
+      let area = a * b;
       document.getElementById("result").innerHTML = `Diện tích hình chữ nhật là ${area} mét vuông`
     }
   }

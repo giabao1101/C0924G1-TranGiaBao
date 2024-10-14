@@ -12,9 +12,9 @@
 <script>
     document.getElementById("area").onclick = function area() {
         let a = +document.getElementById("a").value;
-        let area = a * a;
         if (isNaN(a) || a < 0) document.getElementById("result").innerHTML = 'Wrong data'
         else {
+            let area = a * a;
             document.getElementById("result").innerHTML = `Diện tích hình vuông là ${area} mét vuông`
         }
     }
