@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let temp = +prompt("Nhập nhiệt độ")
+  while (isNaN(temp)) {
+    let temp = +prompt("nhập lại")
+    if (temp < 20) {
+      alert("mời bạn tăng nhiệt độ")
+    } else if (temp > 100) {
+      alert("mời bạn giảm nhiệt độ")
+    } else alert("nhiệt độ bình thường")
+    break
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<label>Nhập số lượng số fibonacci cần tính: </label> <input id="n" type="number">
+<button id="check" onclick="check()">Check</button>
+<script>
+  function fibonacci(n) {
+    if (n <= 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+  document.getElementById("check").onclick = function check() {
+    let n = +document.getElementById("n").value;
+    let total = 0;
+    for (let i = 0; i < n; i++) {
+      let fibo = fibonacci(i);
+      total = total + fibo;
+    }
+    document.write(total);
+  }
+</script>
+</body>
+</html>

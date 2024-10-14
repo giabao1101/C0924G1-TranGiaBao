@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Nhập số lượng số nguyên tố cần in: </label> <input id="n" type="number">
+<button id="check" onclick="check()">Check</button>
+<script>
+  document.getElementById("check").onclick = function check() {
+    let n = +document.getElementById("n").value;
+    let num = 2;
+    let count = 0;
+    let isPrime;
+    while (count <= n) {
+        isPrime = 0;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                isPrime = 1;
+            }
+        }
+        if (isPrime == 0) {
+            document.write(`${num} <br>`)
+            count ++;
+        }
+        num++;
+    }
+    }
+</script>
+<p id="result"></p>
+</body>
+</html>
