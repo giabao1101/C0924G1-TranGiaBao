@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nhiệt độ kiểm tra</title>
 </head>
 <body>
 <script>
-  let temp = +prompt("Nhập nhiệt độ")
-  while (isNaN(temp)) {
-    let temp = +prompt("nhập lại")
-    if (temp < 20) {
-      alert("mời bạn tăng nhiệt độ")
-    } else if (temp > 100) {
-      alert("mời bạn giảm nhiệt độ")
-    } else alert("nhiệt độ bình thường")
-    break
-  }
+    let value = +prompt("Nhập nhiệt độ hiện tại:");
+
+    while (value < 20 || value > 100 || isNaN(value)) {
+        if (isNaN(value)) {
+            alert("Dữ liệu không hợp lệ, vui lòng nhập lại.");
+        } else if (value < 20) {
+            alert("Nhiệt độ quá thấp, vui lòng tăng nhiệt độ.");
+        } else if (value > 100) {
+            alert("Nhiệt độ quá cao, vui lòng giảm nhiệt độ.");
+        }
+        value = +prompt("Nhập nhiệt độ hiện tại:");
+    }
+    alert("Nhiệt độ bình thường.");
 </script>
 </body>
 </html>

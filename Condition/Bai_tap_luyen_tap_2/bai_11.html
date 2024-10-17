@@ -6,22 +6,22 @@
 </head>
 <body>
 <h1>Kiểm tra thuế TNCN</h1>
-<label>Nhập thu nhập tháng: </label> <input id="tn" type="number"> <br> <br>
-<label>Nhập số người phụ thuộc: </label> <input id="pt" type="number">
+<label>Nhập thu nhập tháng: </label> <input id="thu_nhap" type="number"> <br> <br>
+<label>Nhập số người phụ thuộc: </label> <input id="phu_thuoc" type="number">
 <button id="check" onclick="check()">Check</button>
 <script>
   document.getElementById("check").onclick = function check() {
-    let tn = +document.getElementById("tn").value;
-    let pt = +document.getElementById("pt").value;
-    let thu_nhap = tn - pt * 4400000 - 11000000;
-    if (isNaN(tn) || isNaN(pt) || tn < 0 || pt < 0 || !Number.isInteger(pt)){
+    let thu_nhap = +document.getElementById("thu_nhap").value;
+    let phu_thuoc = +document.getElementById("phu_thuoc").value;
+    let thu_nhap1 = thu_nhap - phu_thuoc * 4400000 - 11000000;
+    if (isNaN(thu_nhap) || isNaN(phu_thuoc) || thu_nhap < 0 || phu_thuoc < 0 || !Number.isInteger(phu_thuoc)){
       document.getElementById("result").innerHTML = '404 NOT FOUND'
     }
-    else if (thu_nhap < 0) {
+    else if (thu_nhap1 < 0) {
       document.getElementById("result").innerHTML = 'Thuế phải nộp là 0 VNĐ'
     }
     else {
-      let thue = thu_nhap * 0.1;
+      let thue = thu_nhap1 * 0.1;
       document.getElementById("result").innerHTML = `Thuế phải nộp là ${thue} VNĐ`
     }
   }
