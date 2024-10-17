@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+<h1>Đảo ngược mảng</h1>
+<label>Nhập mảng số nguyên (cách nhau bằng dấu phẩy):</label><br>
+<input id="inputArray" type="text" placeholder="Ví dụ: 3,15,8,22,7,19,10,5,12,25">
+<br><br>
+
+<button id="reverse">Reverse</button>
+
+<p id="result"></p>
+
+<script>
+    document.getElementById("reverse").onclick = function reverse() {
+        let input = document.getElementById("inputArray").value;
+        let arr = input.split(',').map(Number);
+        if (arr.some(isNaN)) {
+            document.getElementById("result").innerHTML = "Dữ liệu không hợp lệ. Vui lòng nhập lại.";
+            return;
+        }
+        document.write(arr.reverse());
+    }
+</script>

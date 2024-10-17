@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra số nguyên âm</title>
+</head>
+<body>
+<h1>Nhập mảng và kiểm tra số nguyên âm</h1>
+
+<label>Nhập mảng số nguyên (cách nhau bằng dấu phẩy):</label><br>
+<input id="inputArray" type="text" placeholder="Ví dụ: 3,15,8,22,7,19,10,5,12,25">
+<br><br>
+
+<button id="calculate">Kiểm tra mảng</button>
+
+<p id="result"></p>
+
+<script>
+  document.getElementById("calculate").onclick = function calculate() {
+    let input = document.getElementById("inputArray").value;
+    let arr = input.split(',').map(Number);
+    if (arr.some(isNaN)) {
+      document.getElementById("result").innerHTML = "Dữ liệu không hợp lệ. Vui lòng nhập lại.";
+      return;
+    }
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < 0) {
+        count++;
+      }
+    }
+    document.getElementById("result").innerHTML = `Có ${count} số nguyên âm trong mảng.`;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Từ điển Anh - Việt</h1>
+<label for="word">Nhập từ tiếng Anh:</label>
+<input id="word" type="text" placeholder="Enter a word">
+<button id="lookup">Tra cứu</button>
+
+<p id="result"></p>
+
+<script>
+
+  let englishWords = ["apple", "banana", "cat", "dog", "house", "school", "water", "get the fuck out of here"];
+  let vietnameseWords = ["quả táo", "quả chuối", "con mèo", "con chó", "ngôi nhà", "trường học", "nước", "cút"];
+
+  document.getElementById("lookup").onclick = function lookup() {
+    let inputWord = document.getElementById("word").value.toLowerCase();
+    let index = englishWords.indexOf(inputWord);
+
+
+    if (index !== -1) {
+      document.getElementById("result").innerHTML = `Nghĩa của từ "${inputWord}" là: ${vietnameseWords[index]}`;
+    } else {
+      document.getElementById("result").innerHTML = `Không tìm thấy nghĩa của từ "${inputWord}"`;
+    }
+  }
+</script>
+</body>
+</html>
