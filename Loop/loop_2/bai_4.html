@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<script>
+    let width = 27;
+    let height = 10;
+
+    for (let i = 0; i < width; i++) {
+        document.write("*");
+    }
+    document.write("<br>");
+    for (let i = 0; i < height - 2; i++) {
+        document.write("*");
+        for (let j = 0; j < width - 2; j++) {
+            document.write("&nbsp;&nbsp;");
+        }
+        document.write("*");
+        document.write("<br>");
+    }
+    for (let i = 0; i < width; i++) {
+        document.write("*");
+    }
+    document.write("<br>");
+</script>
+</body>
+</html>

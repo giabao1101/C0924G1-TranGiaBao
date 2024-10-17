@@ -24,19 +24,24 @@
             }
             document.write("<br>");
         }
-        document.write("<br>");
         for (let i = 1; i <= n; i++) {
+            document.write("<br>");
+            for (let k = n; k >= i; k--) {
+                document.write("&nbsp;&nbsp;");
+            }
             for (let j = 1; j <= i; j++) {
                 document.write("*");
             }
-            document.write("<br>");
         }
         document.write("<br>");
-        for (let i = n; i >= 1; i--) {
-            for (let j = 1; j <= i; j++) {
+        for (let i = 1; i <= n; i++) {
+            document.write("<br>");
+            for (let k = 1; k <= i; k++) {
+                document.write("&nbsp;&nbsp;");
+            }
+            for (let j = n; j >= i; j--) {
                 document.write("*");
             }
-            document.write("<br>");
         }
     }
 </script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính giai thừa (Đệ quy)</title>
+</head>
+<body>
+<script>
+  function tinhGiaiThua(n) {
+    if (n === 0 || n === 1) {
+      return 1;
+    } else {
+      return n * tinhGiaiThua(n - 1);
+    }
+  }
+
+  let n = +prompt("Nhập số nguyên dương:");
+  if (n >= 0) {
+    document.write(`Giai thừa của ${n} là: ${tinhGiaiThua(n)}`);
+  } else {
+    document.write("Vui lòng nhập một số nguyên dương.");
+  }
+</script>
+</body>
+</html>
