@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>In tam giác</h1>
+<label>Nhập độ rộng tam giác cần in:</label> <input id="n" type="number">
+<button id="print" onclick="print()">Print</button>
+<script>
+    document.getElementById("print").onclick = function print() {
+        let n = +document.getElementById("n").value;
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+        for (let i = n; i >= 1; i--) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+        for (let i = n; i >= 1; i--) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+</script>
+</body>
+</html>

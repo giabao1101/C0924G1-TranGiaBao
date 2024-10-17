@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button id="play" onclick="play()">Play</button>
+<script>
+  document.getElementById("play").onclick = function play() {
+    let number = +prompt("Mời bạn khoảng muốn đoán");
+    while (isNaN(number) || !Number.isInteger(number) || number < 0) {
+      number = +prompt("Mời bạn nhập lại");
+    }
+    let numberRandom = Math.floor(Math.random() * number);
+    console.log(numberRandom);
+    let numbercheck = +prompt("Nhập số bạn muốn đoán");
+    for (let i = 1; i <= 3; i++) {
+      while (isNaN(numbercheck) || !Number.isInteger(numbercheck)) {
+        numbercheck = +prompt("Nhập lại số bạn muốn đoán");
+      }
+      if (i === 3) {
+        if (numbercheck === numberRandom) {
+          alert("Chúc mừng bạn đã đoán đúng")
+        } else alert("Bạn đã đoán sai 3 lần!!")
+        break
+      }
+      if (numbercheck < numberRandom) {
+        numbercheck = +prompt("Số bạn đoán nhỏ hơn kết quả")
+      } else if (numbercheck > numberRandom) {
+        numbercheck = +prompt("Số bạn đoán lớn hơn kết quả")
+      } else {
+        alert("Chúc mừng bạn đoán đúng")
+        break;
+      }
+
+    }
+  }
+</script>
+</body>
+</html>

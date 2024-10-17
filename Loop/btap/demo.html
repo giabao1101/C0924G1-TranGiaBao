@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<label>Nhập tuổi cha: </label> <input id="cha" type="number">
+<label>Nhập tuổi con: </label> <input id="con" type="number">
+<button id="check" onclick="check()">check</button>
+<script>
+  document.getElementById("check").onclick = function check() {
+    let cha = +document.getElementById("cha").value;
+    let con = +document.getElementById("con").value;
+    let nam = 0;
+    if (cha - con < 25 || isNaN(cha) || isNaN(con)) {
+      alert("Nhập lại sao cho tuổi cha lớn hơn tuổi con ít nhất 25 tuổi")
+    }
+    else {
+      while (con * 2 != cha) {
+        cha ++;
+        con ++;
+        nam ++;
+      }
+      document.write(`Sau ${nam} năm thì tuổi cha gấp 2 lần tuổi con`)
+    }
+  }
+</script>
+</body>
+</html>

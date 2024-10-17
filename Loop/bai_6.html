@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<label>Nhập số lượng số chia hết cho 7 cần tính tổng: </label> <input id="n" type="number">
+<button id="check" onclick="check()">Check</button>
+<script>
+  document.getElementById("check").onclick = function check() {
+    let n = +document.getElementById("n").value;
+    let count = 0;
+    let total = 0;
+    let num = 1;
+    while (count < n) {
+      for (let i = 1; i <= num; i++) {
+        if (i % 7 == 0) {
+          total += i;
+          count ++;
+        }
+      }
+      num ++;
+    }
+    document.write(total);
+  }
+</script>
+</body>
+</html>
