@@ -11,11 +11,13 @@
 <script>
   document.getElementById("check").onclick = function check() {
     let a = +document.getElementById("age").value;
-    if (a >= 0) {
-      if (a >= 15) document.getElementById("result").innerHTML = `Đủ điều kiện học lớp 10`
-      else document.getElementById("result").innerHTML = `Không đủ điều kiện học lớp 10`
+    if (isNaN(age) || age <= 0) {
+      document.getElementById("result").innerHTML = 'Vui lòng nhập tuổi hợp lệ';
+    } else if (age >= 15) {
+      document.getElementById("result").innerHTML = `Đủ điều kiện học lớp 10`;
+    } else {
+      document.getElementById("result").innerHTML = `Không đủ điều kiện học lớp 10`;
     }
-    else document.getElementById("result").innerHTML = 'wrong data'
   }
 </script>
 <p id="result"></p>

@@ -11,10 +11,11 @@
 <script>
   document.getElementById("checkcommission").onclick = function checkcommission() {
     let a = +document.getElementById("a").value;
-    let commission = a * 10 / 100;
-    if (isNaN(a) || a < 0) document.getElementById("commission").innerHTML = 'Wrong data'
-    else {
-      document.getElementById("commission").innerHTML = `${commission} là hoa hồng được nhận`
+    if (isNaN(a) || a < 0) {
+      document.getElementById("commission").innerHTML = 'Vui lòng nhập doanh số hợp lệ';
+    } else {
+      let commission = a * 10 / 100;
+      document.getElementById("commission").innerHTML = `${commission} là hoa hồng được nhận`;
     }
   }
 </script>
