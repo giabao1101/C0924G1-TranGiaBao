@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra số nguyên trong mảng</title>
+</head>
+<body>
+
+<h1>Kiểm tra số nguyên trong mảng</h1>
+
+<label>Nhập mảng số nguyên gồm 10 phần tử (cách nhau bằng dấu phẩy):</label><br>
+<input id="inputArray" type="text" placeholder="Ví dụ: 3,15,8,22,7,19,10,5,12,25">
+<br><br>
+
+<label>Nhập số nguyên V cần tìm:</label><br>
+<input id="inputV" type="number" placeholder="Ví dụ: 15">
+<br><br>
+
+<button id="checkArray">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+  document.getElementById("checkArray").onclick = function() {
+    let input = document.getElementById("inputArray").value;
+    let arr = input.split(',').map(Number);
+
+    if (arr.length !== 10 || arr.some(isNaN)) {
+      document.getElementById("result").innerHTML = "Mảng phải có đúng 10 số nguyên hợp lệ. Vui lòng nhập lại.";
+      return;
+    }
+
+    let V = Number(document.getElementById("inputV").value);
+
+    let index = arr.indexOf(V);
+    if (index !== -1) {
+      arr.splice(index,1);
+      document.getElementById("result").innerHTML = `Phần tử ${V} đã bị xóa khỏi mảng, mảng mới là: [${arr}]`
+    }
+    else {
+      document.getElementById("result").innerHTML = `${V} không tồn tại trong mảng.`;
+    }
+  }
+</script>
+
+</body>
+</html>
