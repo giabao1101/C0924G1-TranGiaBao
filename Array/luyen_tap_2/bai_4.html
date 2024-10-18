@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm số từ trong chuỗi</title>
+</head>
+<body>
+<script>
+  function countWords(str) {
+    let words = str.trim().split(/\s+/);
+    return words.length;
+  }
+
+  let str = "   Đây là một ví dụ về chuỗi có nhiều từ.  ";
+
+  let wordCount = countWords(str);
+  document.write("Số từ trong chuỗi là: " + wordCount);
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thay thế ký tự '-' bằng '_'</title>
+</head>
+<body>
+<script>
+    function replace(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === '-') {
+                arr[i] = '_';
+            }
+        }
+        return arr;
+    }
+    
+    let inputArray = prompt("Nhập vào một mảng ký tự").split(',');
+
+    let resultArray = replace(inputArray);
+    document.write("Mảng sau khi thay thế: " + resultArray.join(','));
+</script>
+</body>
+</html>

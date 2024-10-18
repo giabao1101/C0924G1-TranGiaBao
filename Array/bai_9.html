@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nối hai mảng số nguyên</title>
 </head>
 <body>
+
+<h1>Nối hai mảng số nguyên</h1>
+
+<label>Nhập mảng a (10 số nguyên, cách nhau bằng dấu phẩy):</label><br>
+<input id="inputArrayA" type="text" placeholder="Ví dụ: 1,2,3,4,5,6,7,8,9,10">
+<br><br>
+
+<label>Nhập mảng b (10 số nguyên, cách nhau bằng dấu phẩy):</label><br>
+<input id="inputArrayB" type="text" placeholder="Ví dụ: 11,12,13,14,15,16,17,18,19,20">
+<br><br>
+
+<button id="mergeArrays">Nối hai mảng</button>
+
+<p id="result"></p>
+
+<script>
+    document.getElementById("mergeArrays").onclick = function() {
+        let inputA = document.getElementById("inputArrayA").value;
+        let inputB = document.getElementById("inputArrayB").value;
+
+        let arrA = inputA.split(',').map(Number);
+        let arrB = inputB.split(',').map(Number);
+
+        if (arrA.length !== 10 || arrB.length !== 10 || arrA.some(isNaN) || arrB.some(isNaN)) {
+            document.getElementById("result").innerHTML = "Cả hai mảng phải có đúng 10 số nguyên hợp lệ. Vui lòng nhập lại.";
+            return;
+        }
+
+        let arrC = new Array(20);
+
+        arrC = arrA.concat(arrB);
+
+        document.getElementById("result").innerHTML = `Mảng c sau khi nối là: [${arrC}]`;
+    }
+</script>
 
 </body>
 </html>
