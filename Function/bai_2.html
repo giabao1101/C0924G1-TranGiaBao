@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tăng giá trị số</title>
+    <script>
+        function tangGiaTri(so) {
+            return so + 1;
+        }
+
+        function hienThiKetQua() {
+            let soNhap = 5; // Giá trị đầu vào
+            let ketQua = tangGiaTri(soNhap);
+            document.getElementById('ketqua').innerHTML = "Kết quả sau khi tăng: " + ketQua;
+        }
+    </script>
+</head>
+<body onload="hienThiKetQua()">
+<h1>Tăng giá trị số lên 1</h1>
+<div id="ketqua"></div>
+</body>
+</html>

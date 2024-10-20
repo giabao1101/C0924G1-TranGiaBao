@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính Diện Tích và Chu Vi Hình Tròn</title>
+  <script>
+    const PI = 3.14159; // Giá trị hằng số PI
+
+    function tinhDienTich(r) {
+      return PI * r * r;
+    }
+
+    function tinhChuVi(r) {
+      return 2 * PI * r;
+    }
+
+    function hienThiKetQua() {
+      let banKinh = prompt("Nhập vào bán kính hình tròn:");
+
+      let dienTich = tinhDienTich(Number(banKinh));
+      let chuVi = tinhChuVi(Number(banKinh));
+
+      document.getElementById('ketqua').innerHTML =
+              "Diện tích hình tròn: " + dienTich + "<br>" +
+              "Chu vi hình tròn: " + chuVi;
+    }
+  </script>
+</head>
+<body onload="hienThiKetQua()">
+<h1>Tính Diện Tích và Chu Vi Hình Tròn</h1>
+<div id="ketqua"></div>
+</body>
+</html>

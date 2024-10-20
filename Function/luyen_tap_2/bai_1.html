@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính bình phương</title>
+  <script>
+    function tinhBinhPhuong(n) {
+      return n * n;
+    }
+
+    function hienThiKetQua() {
+      let soNhap = prompt("Nhập vào một số:");
+      let ketQua = tinhBinhPhuong(Number(soNhap));
+      document.getElementById('ketqua').innerHTML = `Bình phương của ${soNhap} là ${ketQua}`
+    }
+  </script>
+</head>
+<body onload="hienThiKetQua()">
+<h1>Tính bình phương của một số</h1>
+<div id="ketqua"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra giá trị biến result</title>
+  <script>
+    function addNumbers() {
+      let firstNum = 4;
+      let secondNum = 8;
+      let result = firstNum + secondNum;
+      return result;
+    }
+
+    function kiemTraGiaTri() {
+      let result = 0;
+      alert("Giá trị của result trước khi gọi hàm: " + result);
+      result = addNumbers();
+      alert("Giá trị của result sau khi gọi hàm: " + result);
+    }
+  </script>
+</head>
+<body onload="kiemTraGiaTri()">
+<h1>Kiểm tra giá trị biến result</h1>
+</body>
+</html>

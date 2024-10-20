@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>So sánh hai tham số</title>
+    <script>
+        function soSanhHaiThamSo(so1, so2) {
+            if (so1 > so2) {
+                alert("Tham số thứ nhất lớn hơn tham số thứ hai");
+            } else {
+                return so1 + so2;
+            }
+        }
+
+        function hienThiKetQua() {
+            const thamSo1 = 3;
+            const thamSo2 = 5;
+            const ketQua = soSanhHaiThamSo(thamSo1, thamSo2);
+
+            if (ketQua !== undefined) {
+                document.getElementById('ketqua').innerHTML = "Tổng của hai tham số: " + ketQua;
+            }
+        }
+    </script>
+</head>
+<body onload="hienThiKetQua()">
+<h1>So sánh hai tham số</h1>
+<div id="ketqua"></div>
+</body>
+</html>
