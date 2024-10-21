@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function starName(star) {
+        let names = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+        let horoscopes = ["Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Major", "Leo"]
+        for (let i = 0; i < names.length; i++) {
+            if (star === names[i]) {
+                return horoscopes[i]
+            }
+        }
+        return ""
+    }
+
+    function result() {
+        let name = prompt("Nhập tên ngôi sao")
+        let star = starName(name)
+        if (star === "") {
+            document.write("Không tìm thấy kết quả")
+        } else {
+            document.write(`Ngôi sao ${name} chòm sao ${star}`)
+        }
+    }
+
+    result();
+
+</script>
+
+</body>
+</html>
