@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>Hình Chữ Nhật</h1>
+<canvas id="canvas" width="400" height="400" style="border: 1px solid black;"></canvas>
+
+<div>
+    <p>Chiều dài: <span id="width"></span></p>
+    <p>Chiều rộng: <span id="height"></span></p>
+    <p>Diện tích: <span id="area"></span></p>
+    <p>Chu vi: <span id="perimeter"></span></p>
+</div>
+
+<button id="changeDimensions">Thay đổi kích thước</button>
+<script src="Rectangle.js"></script>
+<script>
+
+        let rect = new Rectangle(100, 150);
+
+        rect.drawRectangle();
+
+        document.getElementById('width').textContent = rect.width;
+        document.getElementById('height').textContent = rect.height;
+        document.getElementById('area').textContent = rect.getArea();
+        document.getElementById('perimeter').textContent = rect.getPerimeter();
+
+        document.getElementById('changeDimensions').addEventListener('click', function() {
+            rect.width = Math.floor(Math.random() * 200) + 50;
+            rect.height = Math.floor(Math.random() * 200) + 50;
+
+            rect.drawRectangle();
+
+            document.getElementById('width').textContent = rect.width;
+            document.getElementById('height').textContent = rect.height;
+            document.getElementById('area').textContent = rect.getArea();
+            document.getElementById('perimeter').textContent = rect.getPerimeter();
+        });
+
+</script>
+</body>
+</html>

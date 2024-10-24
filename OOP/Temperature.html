@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+
+            if (celsius < -273) {
+                alert("Nhiệt độ không thể nhỏ hơn -273 độ C");
+            }
+            this.celsius = celsius;
+        }
+
+        toFahrenheit() {
+            return (this.celsius * 9/5) + 32;
+        }
+
+        toKelvin() {
+            return this.celsius + 273.15;
+        }
+
+        setCelsius(celsius) {
+            if (celsius < -273) {
+                alert("Nhiệt độ không thể nhỏ hơn -273 độ C");
+            }
+            this.celsius = celsius;
+        }
+    }
+
+    let temp = new Temperature(25);
+
+    console.log("Nhiệt độ ban đầu:", temp.celsius, "°C");
+    console.log("Nhiệt độ chuyển sang Fahrenheit:", temp.toFahrenheit(), "°F");
+    console.log("Nhiệt độ chuyển sang Kelvin:", temp.toKelvin(), "K");
+
+    let newCelsius = prompt("Nhập giá trị nhiệt độ (°C):");
+    temp.setCelsius(parseFloat(newCelsius));
+
+    console.log("Nhiệt độ mới:", temp.celsius, "°C");
+    console.log("Chuyển đổi sang Fahrenheit:", temp.toFahrenheit(), "°F");
+    console.log("Chuyển đổi sang Kelvin:", temp.toKelvin(), "K");
+
+</script>
+</body>
+</html>
