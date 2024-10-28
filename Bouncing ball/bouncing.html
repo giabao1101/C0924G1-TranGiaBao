@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Balls with Arc in Canvas</title>
+    <style>
+        canvas {
+            background-color: black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800"></canvas>
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const WIDTH = canvas.width;
+    const HEIGHT = canvas.height;
+
+    const CIRCLE_CENTER = { x: WIDTH / 2, y: HEIGHT / 2 };
+    const CIRCLE_RADIUS = 150;
+    const BALL_RADIUS = 5;
+    const GRAVITY = 0.2;
+    const SPINNING_SPEED = 0.01;
+    const ARC_DEGREE = 60;
+
+    let startAngle = -ARC_DEGREE / 2 * Math.PI / 180;
+    let endAngle = ARC_DEGREE / 2 * Math.PI / 180;
+
+    class Ball {
+        constructor(position, velocity) {
+            this.pos = { ...position };
+            this.v = { ...velocity };
+            this.color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            this.isIn = true;
+        }
+
+        update() {
+            this.v.y += GRAVITY;
+            this.pos.x += this.v.x;
+            this.pos.y += this.v.y;
+
+            let dx = this.pos.x - CIRCLE_CENTER.x;
+            let dy = this.pos.y - CIRCLE_CENTER.y;
+            let dist = Math.hypot(dx, dy);
+
+            if (dist + BALL_RADIUS > CIRCLE_RADIUS) {
+                if (isBallInArc(this.pos, startAngle, endAngle)) {
+                    this.isIn = false;
+                }
+
+                if (this.isIn) {
+                    let d_unit = { x: dx / dist, y: dy / dist };
+                    this.pos = {
+                        x: CIRCLE_CENTER.x + (CIRCLE_RADIUS - BALL_RADIUS) * d_unit.x,
+                        y: CIRCLE_CENTER.y + (CIRCLE_RADIUS - BALL_RADIUS) * d_unit.y
+                    };
+
+                    let tangent = { x: -d_unit.y, y: d_unit.x };
+                    let projVt = (this.v.x * tangent.x + this.v.y * tangent.y) / (tangent.x ** 2 + tangent.y ** 2);
+                    this.v.x = 2 * projVt * tangent.x - this.v.x;
+                    this.v.y = 2 * projVt * tangent.y - this.v.y;
+
+                    this.v.x += tangent.x * SPINNING_SPEED;
+                    this.v.y += tangent.y * SPINNING_SPEED;
+                }
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.pos.x, this.pos.y, BALL_RADIUS, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+
+    function drawArc(center, radius, startAngle, endAngle) {
+        ctx.beginPath();
+        ctx.moveTo(center.x, center.y);
+        ctx.arc(center.x, center.y, radius + 1000, startAngle, endAngle);
+        ctx.closePath();
+        ctx.fillStyle = 'black';
+        ctx.fill();
+    }
+
+    function isBallInArc(pos, startAngle, endAngle) {
+        let dx = pos.x - CIRCLE_CENTER.x;
+        let dy = pos.y - CIRCLE_CENTER.y;
+        let ballAngle = Math.atan2(dy, dx);
+
+        if (startAngle > endAngle) endAngle += 2 * Math.PI;
+        return startAngle <= ballAngle && ballAngle <= endAngle || startAngle <= ballAngle + 2 * Math.PI && ballAngle + 2 * Math.PI <= endAngle;
+    }
+
+    let balls = [new Ball({ x: WIDTH / 2, y: HEIGHT / 2 - 120 }, { x: 0, y: 0 })];
+
+    function animate() {
+        ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+        // Rotate the arc
+        startAngle += SPINNING_SPEED;
+        endAngle += SPINNING_SPEED;
+
+        // Draw the circle and arc
+        ctx.beginPath();
+        ctx.arc(CIRCLE_CENTER.x, CIRCLE_CENTER.y, CIRCLE_RADIUS, 0, Math.PI * 2);
+        ctx.strokeStyle = 'orange';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        drawArc(CIRCLE_CENTER, CIRCLE_RADIUS, startAngle, endAngle);
+
+        // Update and draw each ball
+        balls.forEach((ball, index) => {
+            ball.update();
+            if (ball.pos.x < 0 || ball.pos.x > WIDTH || ball.pos.y < 0 || ball.pos.y > HEIGHT) {
+                balls.splice(index, 1);
+                balls.push(new Ball({ x: WIDTH / 2, y: HEIGHT / 2 - 120 }, { x: (Math.random() - 0.5) * 8, y: (Math.random() - 0.5) * 2 }));
+                balls.push(new Ball({ x: WIDTH / 2, y: HEIGHT / 2 - 120 }, { x: (Math.random() - 0.5) * 8, y: (Math.random() - 0.5) * 2 }));
+            }
+            ball.draw();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+</body>
+</html>
