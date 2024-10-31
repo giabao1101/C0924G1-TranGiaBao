@@ -3,131 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bouncing Balls with Arc in Canvas</title>
+    <title>Bouncing Ball Game</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
         canvas {
-            background-color: black;
-            display: block;
-            margin: 0 auto;
+            background-color: #111;
+            border: 2px solid #fff;
+        }
+        #scoreboard {
+            position: absolute;
+            top: 10px;
+            font-size: 20px;
+        }
+        #game-over {
+            display: none;
+            font-size: 30px;
+            color: red;
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<canvas id="canvas" width="800" height="800"></canvas>
+<div id="scoreboard">Score: 0</div>
+<canvas id="gameCanvas" width="400" height="600"></canvas>
+<div id="game-over">
+    <p>Game Over!</p>
+    <button onclick="startGame()">Play Again</button>
+</div>
+
 <script>
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const WIDTH = canvas.width;
-    const HEIGHT = canvas.height;
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const scoreboard = document.getElementById("scoreboard");
+    const gameOverText = document.getElementById("game-over");
 
-    const CIRCLE_CENTER = { x: WIDTH / 2, y: HEIGHT / 2 };
-    const CIRCLE_RADIUS = 150;
-    const BALL_RADIUS = 5;
-    const GRAVITY = 0.2;
-    const SPINNING_SPEED = 0.01;
-    const ARC_DEGREE = 60;
+    const BALL_RADIUS = 10;
+    const BAR_WIDTH = 80;
+    const BAR_HEIGHT = 10;
+    const BAR_SPEED = 5;
 
-    let startAngle = -ARC_DEGREE / 2 * Math.PI / 180;
-    let endAngle = ARC_DEGREE / 2 * Math.PI / 180;
+    let ball, bar, score, isGameOver, startTime;
 
     class Ball {
-        constructor(position, velocity) {
-            this.pos = { ...position };
-            this.v = { ...velocity };
-            this.color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
-            this.isIn = true;
-        }
-
-        update() {
-            this.v.y += GRAVITY;
-            this.pos.x += this.v.x;
-            this.pos.y += this.v.y;
-
-            let dx = this.pos.x - CIRCLE_CENTER.x;
-            let dy = this.pos.y - CIRCLE_CENTER.y;
-            let dist = Math.hypot(dx, dy);
-
-            if (dist + BALL_RADIUS > CIRCLE_RADIUS) {
-                if (isBallInArc(this.pos, startAngle, endAngle)) {
-                    this.isIn = false;
-                }
-
-                if (this.isIn) {
-                    let d_unit = { x: dx / dist, y: dy / dist };
-                    this.pos = {
-                        x: CIRCLE_CENTER.x + (CIRCLE_RADIUS - BALL_RADIUS) * d_unit.x,
-                        y: CIRCLE_CENTER.y + (CIRCLE_RADIUS - BALL_RADIUS) * d_unit.y
-                    };
-
-                    let tangent = { x: -d_unit.y, y: d_unit.x };
-                    let projVt = (this.v.x * tangent.x + this.v.y * tangent.y) / (tangent.x ** 2 + tangent.y ** 2);
-                    this.v.x = 2 * projVt * tangent.x - this.v.x;
-                    this.v.y = 2 * projVt * tangent.y - this.v.y;
-
-                    this.v.x += tangent.x * SPINNING_SPEED;
-                    this.v.y += tangent.y * SPINNING_SPEED;
-                }
-            }
+        constructor(x, y, dx, dy) {
+            this.x = x;
+            this.y = y;
+            this.dx = dx;
+            this.dy = dy;
         }
 
         draw() {
             ctx.beginPath();
-            ctx.arc(this.pos.x, this.pos.y, BALL_RADIUS, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
+            ctx.arc(this.x, this.y, BALL_RADIUS, 0, Math.PI * 2);
+            ctx.fillStyle = "orange";
             ctx.fill();
+            ctx.closePath();
+        }
+
+        update() {
+            // Kiểm tra va chạm với các biên
+            if (this.x + this.dx < BALL_RADIUS || this.x + this.dx > canvas.width - BALL_RADIUS) {
+                this.dx = -this.dx;
+            }
+            if (this.y + this.dy < BALL_RADIUS) {
+                this.dy = -this.dy;
+            }
+
+            // Kiểm tra va chạm với thanh đỡ
+            if (
+                this.y + BALL_RADIUS >= bar.y &&
+                this.x > bar.x &&
+                this.x < bar.x + BAR_WIDTH
+            ) {
+                this.dy = -this.dy;
+
+                // Thay đổi góc tùy theo tốc độ thanh đỡ
+                const hitPos = (this.x - bar.x - BAR_WIDTH / 2) / (BAR_WIDTH / 2);
+                this.dx += hitPos * 0.5 * bar.dx;
+            }
+
+            // Kiểm tra game over nếu chạm biên dưới
+            if (this.y + BALL_RADIUS >= canvas.height) {
+                isGameOver = true;
+            }
+
+            this.x += this.dx;
+            this.y += this.dy;
         }
     }
 
-    function drawArc(center, radius, startAngle, endAngle) {
-        ctx.beginPath();
-        ctx.moveTo(center.x, center.y);
-        ctx.arc(center.x, center.y, radius + 1000, startAngle, endAngle);
-        ctx.closePath();
-        ctx.fillStyle = 'black';
-        ctx.fill();
+    class Bar {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.dx = 0;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.rect(this.x, this.y, BAR_WIDTH, BAR_HEIGHT);
+            ctx.fillStyle = "lightblue";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        update() {
+            this.x += this.dx;
+
+            // Kiểm tra va chạm với biên trái và phải
+            if (this.x < 0) {
+                this.x = 0;
+            } else if (this.x + BAR_WIDTH > canvas.width) {
+                this.x = canvas.width - BAR_WIDTH;
+            }
+        }
+
+        moveLeft() {
+            this.dx = -BAR_SPEED;
+        }
+
+        moveRight() {
+            this.dx = BAR_SPEED;
+        }
+
+        stop() {
+            this.dx = 0;
+        }
     }
 
-    function isBallInArc(pos, startAngle, endAngle) {
-        let dx = pos.x - CIRCLE_CENTER.x;
-        let dy = pos.y - CIRCLE_CENTER.y;
-        let ballAngle = Math.atan2(dy, dx);
-
-        if (startAngle > endAngle) endAngle += 2 * Math.PI;
-        return startAngle <= ballAngle && ballAngle <= endAngle || startAngle <= ballAngle + 2 * Math.PI && ballAngle + 2 * Math.PI <= endAngle;
+    function startGame() {
+        ball = new Ball(canvas.width / 2, canvas.height / 2, 2, -3);
+        bar = new Bar((canvas.width - BAR_WIDTH) / 2, canvas.height - 30);
+        score = 0;
+        isGameOver = false;
+        startTime = Date.now();
+        gameOverText.style.display = "none";
+        animate();
     }
 
-    let balls = [new Ball({ x: WIDTH / 2, y: HEIGHT / 2 - 120 }, { x: 0, y: 0 })];
+    function updateScore() {
+        const currentTime = Date.now();
+        score = Math.floor((currentTime - startTime) / 1000);
+        scoreboard.textContent = `Score: ${score}`;
+    }
+
+    function gameOver() {
+        gameOverText.style.display = "block";
+    }
 
     function animate() {
-        ctx.clearRect(0, 0, WIDTH, HEIGHT);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Rotate the arc
-        startAngle += SPINNING_SPEED;
-        endAngle += SPINNING_SPEED;
-
-        // Draw the circle and arc
-        ctx.beginPath();
-        ctx.arc(CIRCLE_CENTER.x, CIRCLE_CENTER.y, CIRCLE_RADIUS, 0, Math.PI * 2);
-        ctx.strokeStyle = 'orange';
-        ctx.lineWidth = 3;
-        ctx.stroke();
-        drawArc(CIRCLE_CENTER, CIRCLE_RADIUS, startAngle, endAngle);
-
-        // Update and draw each ball
-        balls.forEach((ball, index) => {
+        if (!isGameOver) {
             ball.update();
-            if (ball.pos.x < 0 || ball.pos.x > WIDTH || ball.pos.y < 0 || ball.pos.y > HEIGHT) {
-                balls.splice(index, 1);
-                balls.push(new Ball({ x: WIDTH / 2, y: HEIGHT / 2 - 120 }, { x: (Math.random() - 0.5) * 8, y: (Math.random() - 0.5) * 2 }));
-                balls.push(new Ball({ x: WIDTH / 2, y: HEIGHT / 2 - 120 }, { x: (Math.random() - 0.5) * 8, y: (Math.random() - 0.5) * 2 }));
-            }
-            ball.draw();
-        });
+            bar.update();
+            updateScore();
+        } else {
+            gameOver();
+            return;
+        }
+
+        ball.draw();
+        bar.draw();
 
         requestAnimationFrame(animate);
     }
 
-    animate();
+    // Điều khiển thanh đỡ bằng phím mũi tên
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+            bar.moveLeft();
+        } else if (e.key === "ArrowRight") {
+            bar.moveRight();
+        }
+    });
+
+    document.addEventListener("keyup", (e) => {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+            bar.stop();
+        }
+    });
+
+    startGame();
 </script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function tinhSoNgayTrongThang() {
+    let month, year;
+    while (true) {
+      let input = prompt("Nhập tháng và năm theo định dạng MM/yyyy:");
+
+      let Calender = input.split("/");
+
+      if (Calender.length === 2) {
+        month = Number(Calender[0]);
+        year = Number(Calender[1]);
+
+        if (!isNaN(month) && !isNaN(year) && month >= 1 && month <= 12 && year > 0) {
+          break;
+        }
+      }
+      alert("Định dạng không hợp lệ. Vui lòng nhập theo định dạng MM/yyyy (số tháng không quá 12, số năm không nhỏ hơn 1).");
+    }
+
+
+    function isLeapYear(year) {
+      return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+
+    let day;
+
+    if (month === 2) {
+      day = isLeapYear(year) ? 29 : 28;
+    } else if ([4, 6, 9, 11].includes(month)) {
+      day = 30;
+    } else {
+      day = 31;
+    }
+
+    alert(`Tháng ${month}/${year} có ${day} ngày.`);
+  }
+
+  tinhSoNgayTrongThang();
+
+</script>
+</body>
+</html>

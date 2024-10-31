@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const MAX_SIZE = 50;
+    let arr = [];
+
+    function nhapMang() {
+        while (arr.length < MAX_SIZE) {
+            let phanTu = prompt("Nhập phần tử (nhập 'stop' để kết thúc):");
+
+            if (phanTu.toLowerCase() === 'stop') {
+                break;
+            }
+
+            phanTu = Number(phanTu);
+
+            if (!isNaN(phanTu)) {
+                arr.push(phanTu);
+            } else {
+                alert("Giá trị không hợp lệ, vui lòng nhập một số.");
+            }
+        }
+
+        if (arr.length === MAX_SIZE) {
+            console.log("Đã đạt giới hạn tối đa 50 phần tử.");
+        }
+    }
+
+    function hienThiMang() {
+        console.log("Các phần tử trong mảng:", arr.join(", "));
+    }
+
+    function trungBinhChiaHetCho3() {
+        let tong = 0;
+        let count = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 3 === 0) {
+                tong += arr[i];
+                count++;
+            }
+        }
+
+        return count > 0 ? tong / count : 0;
+    }
+
+
+    nhapMang();
+    hienThiMang();
+
+    let trungBinh = trungBinhChiaHetCho3();
+    if (trungBinh === 0) {
+        console.log("Không có số nào chia hết cho 3 trong mảng.");
+    } else {
+        console.log("Trung bình cộng các số chia hết cho 3 là:", trungBinh);
+    }
+
+</script>
+</body>
+</html>
